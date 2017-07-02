@@ -30,6 +30,22 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+
+gem 'oj'
+gem 'browser'
+gem 'aws-sdk'
+gem 'addressable'
+gem 'bootsnap'
+gem 'fast_blank'
+gem 'htmlentities'
+gem 'httplog'
+gem 'rack-attack'
+gem 'rack-cors'
+gem 'rack-timeout'
+gem 'rails-settings-cached'
+gem 'sanitize'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'webpacker'
