@@ -45,6 +45,7 @@ gem 'rack-cors'
 gem 'rack-timeout'
 gem 'rails-settings-cached'
 gem 'sanitize'
+gem 'grape'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
