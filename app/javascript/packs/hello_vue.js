@@ -9,7 +9,6 @@ import App from './app.vue'
 import router from './router'
 import store from './store'
 
-
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   // const app = new Vue(App).$mount('hello')
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     components: { App }
   })
 
-  console.log(app)
+  //console.log(app)
 })
 
 

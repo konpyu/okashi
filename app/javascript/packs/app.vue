@@ -1,22 +1,24 @@
+
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
+  name: 'app'
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
