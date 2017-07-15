@@ -6,10 +6,23 @@
 
 import Vue from 'vue'
 import App from './app.vue'
+import router from './router'
+import store from './store'
+
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
-  const app = new Vue(App).$mount('hello')
+  // const app = new Vue(App).$mount('hello')
+  /* eslint-disable no-new */
+  const app = new Vue({
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
+  })
 
   console.log(app)
 })
+
+
