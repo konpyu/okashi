@@ -28,6 +28,7 @@ gem 'rack-timeout'
 gem 'rails-settings-cached'
 gem 'sanitize'
 gem 'grape'
+gem 'mini_magick'
 gem 'carrierwave'
 
 gem 'webpacker'
