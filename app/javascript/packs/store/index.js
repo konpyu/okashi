@@ -43,6 +43,15 @@ const store = new Vuex.Store({
                     console.log(res.data)
                     commit('SET_ITEM', { item: { id: res.data.id, body: res.data.comment }})
                 })
+        },
+        FETCH_ITEM: ( { commit ,state }) => {
+            axios.get("/api/v1/items")
+                 .then((res) => {
+                    console.log(res.data)
+                    res.data.forEach(item => {
+                       commit('SET_ITEM', { item: { id: item.id, body: item.comment }})
+                    })
+                 })
         }
     }
 });

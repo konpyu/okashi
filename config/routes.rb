@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'templates#index'
-  match '*path', via: :get, to: 'templates#index'
+  
   namespace :api do
 
     # JSON / REST API
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
       #   end
       # end
     end
+
+
+    match '*path', via: :get, to: 'templates#index'
   end
   
 

@@ -9,7 +9,7 @@ class Api::V1::ItemsController < Api::BaseController
   end
 
   def index
-    render plain: :ok
+    render json: Item.limit(10).to_json
   end
 
   private

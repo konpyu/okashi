@@ -36,6 +36,10 @@ export default {
   mounted () {
     //this.test()
     //this.fetchItem()
+    this.$store.dispatch("FETCH_ITEM")
+        .then((res) => {
+          
+        })
   },
   components: { Item },
   methods: {
@@ -50,6 +54,7 @@ export default {
       this.$store.dispatch('POST_ITEM', { item: { data } })
         .then( (res) => {
           console.log(res)
+          this.body = ""
 
         })
 
