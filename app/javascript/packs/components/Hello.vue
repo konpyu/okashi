@@ -1,18 +1,22 @@
 <template>
   <div class="hello">
 
+
+    <edit-item-modal :show="isOpenModal"></edit-item-modal>
+    
+    <div @click="openModal">_create_modal_</div>
+  
     <form id="itemForm" v-on:submit.prevent="addItem">
       <input v-model="body" placeholder="write me">
       <p v-if="error">{{ error }}</p>
       <input type="submit" value="Add Item">
     </form>
-
+  
     <p v-for="(value, key, index) in items">
       <!-- <span>{{ item.body }}</span> -->
       <item @remove-item="removeItem" :test="msg" :id="key"></item>
     </p>
-
-
+  
     <h1>{{ msg }}</h1>
     <router-link to="following">GO USER</router-link>
   </div>
@@ -22,31 +26,38 @@
 import axios from 'axios'
 import { mapState } from 'vuex'
 import Item from './item.vue'
+import EditItemModal from './editItemModal.vue'
 
 export default {
   name: 'hello',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       body: "",
       error: "",
-      items: this.$store.state.items
+      items: this.$store.state.items,
+      isOpenModal: false
     }
   },
-  mounted () {
+  mounted() {
+    //https://stackoverflow.com/questions/40957008/how-to-access-to-a-child-method-from-the-parent-in-vue-js
+    console.log(this.$children)
     //this.test()
     //this.fetchItem()
     this.$store.dispatch("FETCH_ITEM")
-        .then((res) => {
+      .then((res) => {
 
-        })
+      })
   },
-  components: { Item },
+  components: { Item, EditItemModal },
   methods: {
-    removeItem: function(arg) {
+    openModal: function(arg) {
+      this.isOpenModal = true
+    },
+    removeItem: function (arg) {
       this.$store.dispatch("REMOVE_ITEM", { id: arg })
     },
-    addItem: function() {
+    addItem: function () {
       if (this.body === "") {
         this.error = "write something"
         return
@@ -55,12 +66,12 @@ export default {
         body: this.body,
       }
       this.$store.dispatch('POST_ITEM', { item: { data } })
-        .then( (res) => {
+        .then((res) => {
           this.body = ""
         })
 
     },
-    test: function(res) {
+    test: function (res) {
       console.log("------ called -------")
     }
   },
@@ -76,7 +87,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -93,4 +105,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>

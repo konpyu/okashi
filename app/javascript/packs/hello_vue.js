@@ -9,6 +9,9 @@ import App from './app.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import vmodal from 'vue-js-modal'
+
+Vue.use(vmodal)
 
 //want to move
 //https://stephenhowells.net/rails-5-user-registration-with-devise-vue-js-and-axios/

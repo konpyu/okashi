@@ -32,24 +32,21 @@ const store = new Vuex.Store({
         POST_ITEM: ({ commit, state }, { item }) => {
             axios.post("/api/v1/items", { comment: item.data.body, title: item.data.body })
                 .then((res) => {
-                    console.log(res.data)
-                    commit('SET_ITEM', { item: { id: res.data.id, body: res.data.comment }})
+                    commit('SET_ITEM', { item: { id: res.data.id, body: res.data.comment } })
                 })
         },
-        FETCH_ITEM: ( { commit ,state }) => {
+        FETCH_ITEM: ({ commit, state }) => {
             axios.get("/api/v1/items")
-                 .then((res) => {
-                    console.log(res.data)
+                .then((res) => {
                     res.data.forEach(item => {
-                       commit('SET_ITEM', { item: { id: item.id, body: item.comment }})
+                        commit('SET_ITEM', { item: { id: item.id, body: item.comment } })
                     })
-                 })
+                })
         },
-        REMOVE_ITEM: ( {commit,state}, { id }) => {
-
+        REMOVE_ITEM: ({ commit, state }, { id }) => {
             axios.delete("/api/v1/items/" + id)
                 .then((res) => {
-                    commit("REMOVE_ITEM", { id: id } )
+                    commit("REMOVE_ITEM", { id: id })
                 })
         }
     }
