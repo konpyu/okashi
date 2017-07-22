@@ -91,6 +91,8 @@ GEM
     execjs (2.7.0)
     fast_blank (1.0.0)
     ffi (1.9.18)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     grape (1.0.0)
@@ -258,6 +260,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   fast_blank
+  foreman
   grape
   hamlit-rails
   htmlentities
