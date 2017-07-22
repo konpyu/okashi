@@ -29,15 +29,6 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        /*
-        FETCH_USERS: ({ commit, state }, { ids }) => {
-            axios.get("http://swapi.co/api/people/2/")
-                .then((res) => {
-                    console.log(res.data)
-                    //this.msg = res.data.name
-                    commit('SET_USER', { user: { name: res.data.name, followingCount: 21, postCount:98} })
-                })
-        },*/
         POST_ITEM: ({ commit, state }, { item }) => {
             axios.post("/api/v1/items", { comment: item.data.body, title: item.data.body })
                 .then((res) => {
@@ -53,6 +44,13 @@ const store = new Vuex.Store({
                        commit('SET_ITEM', { item: { id: item.id, body: item.comment }})
                     })
                  })
+        },
+        REMOVE_ITEM: ( {commit,state}, { id }) => {
+
+            axios.delete("/api/v1/items/" + id)
+                .then((res) => {
+                    commit("REMOVE_ITEM", { id: id } )
+                })
         }
     }
 });

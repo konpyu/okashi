@@ -20,7 +20,10 @@ export default {
   },
   methods: {
       removeItem() {
-        this.$emit('remove-item', this.id)
+        let res = confirm("are you sure?")
+        if (res) {
+           this.$emit('remove-item', this.id)
+        }
       }
   },
   

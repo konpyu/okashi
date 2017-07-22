@@ -44,7 +44,7 @@ export default {
   components: { Item },
   methods: {
     removeItem: function(arg) {
-      this.$store.commit("REMOVE_ITEM", { id: arg })
+      this.$store.dispatch("REMOVE_ITEM", { id: arg })
     },
     addItem: function() {
       if (this.body === "") {
