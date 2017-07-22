@@ -1,0 +1,13 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  test_flag: true
+  test_str: '東京は夜の七時'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

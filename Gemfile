@@ -30,6 +30,7 @@ gem 'sanitize'
 gem 'grape'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'rails-settings-cached'
 
 gem 'webpacker'
 group :development, :test do

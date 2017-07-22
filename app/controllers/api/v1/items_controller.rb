@@ -5,7 +5,7 @@ class Api::V1::ItemsController < Api::BaseController
     item = Item.new(item_params)
     item.user_id = 1
     item.save!
-    render json: {}
+    render json: item.to_json
   end
 
   def index
