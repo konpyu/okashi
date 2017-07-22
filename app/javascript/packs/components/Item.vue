@@ -1,6 +1,7 @@
 <template>
   <div class="item">
-      <p>{{ this.id  }} -- {{ getBody.body }}</p>
+      <p>{{ this.id  }} -- {{ getBody.body }} <span @click="removeItem">remove</span> </p>
+      
   </div>
 </template>
 
@@ -18,6 +19,9 @@ export default {
       //console.log(this.test)
   },
   methods: {
+      removeItem() {
+        this.$emit('remove-item', this.id)
+      }
   },
   
   computed: {

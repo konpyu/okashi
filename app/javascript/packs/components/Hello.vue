@@ -9,7 +9,7 @@
 
     <p v-for="(value, key, index) in items">
       <!-- <span>{{ item.body }}</span> -->
-      <item :test="msg" :id="key"></item>
+      <item @remove-item="removeItem" :test="msg" :id="key"></item>
     </p>
 
 
@@ -38,11 +38,14 @@ export default {
     //this.fetchItem()
     this.$store.dispatch("FETCH_ITEM")
         .then((res) => {
-          
+
         })
   },
   components: { Item },
   methods: {
+    removeItem: function(arg) {
+      this.$store.commit("REMOVE_ITEM", { id: arg })
+    },
     addItem: function() {
       if (this.body === "") {
         this.error = "write something"
@@ -53,9 +56,7 @@ export default {
       }
       this.$store.dispatch('POST_ITEM', { item: { data } })
         .then( (res) => {
-          console.log(res)
           this.body = ""
-
         })
 
     },

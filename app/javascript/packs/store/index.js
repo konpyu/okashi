@@ -25,6 +25,7 @@ const store = new Vuex.Store({
             Vue.set(state.items, item.id, item)
         },
         REMOVE_ITEM: (state, { id }) => {
+            Vue.delete(state.items, id)
         }
     },
     actions: {
