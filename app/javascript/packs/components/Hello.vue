@@ -1,6 +1,23 @@
 <template>
   <div class="hello">
 
+<div class="siteHeader">
+  <!-- This section gets pushed to the left side-->
+  <div class="siteHeader__section">
+    <div class="siteHeader__item siteHeaderLogo">
+      <div class="fa fa-inbox"></div>
+    </div>
+    <div class="siteHeader__item siteHeaderButton is-site-header-item-selected">Inbox</div>
+    <div class="siteHeader__item siteHeaderButton">Sent</div>
+    <div class="siteHeader__item siteHeaderButton">Trash</div>
+  </div>
+  <!-- This section gets pushed to the right side-->
+  <div class="siteHeader__section">
+    <div class="siteHeader__item siteHeaderButton">Settings</div>
+  </div>
+</div>
+
+    <!-- hoge -->
 
     <edit-item-modal :show="isOpenModal"></edit-item-modal>
     
@@ -25,7 +42,7 @@
 <script>
 import axios from 'axios'
 import { mapState } from 'vuex'
-import Item from './item.vue'
+import Item from './Item.vue'
 import EditItemModal from './editItemModal.vue'
 
 export default {
@@ -105,5 +122,70 @@ li {
 a {
   color: #42b983;
 }
+
+
+
+
+.siteHeader {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: #56727C;
+}
+
+  .siteHeader__section {
+    display: flex;
+    align-items: center;
+  }
+
+    .siteHeader__item {
+      padding: 5px 15px;
+      font-size: 12px;
+
+      & + & {
+        margin-left: 5px;
+      }
+
+      &.is-site-header-item-selected {
+        color: #FFFFFF;
+        background-color: #415F69;
+        border-radius: 4px;
+      }
+    }
+
+    .siteHeaderLogo {
+      font-size: 20px;
+      line-height: 0;
+      color: white;
+    }
+
+    .siteHeaderButton {
+      cursor: pointer;
+      color: #D9E9EF;
+    }
+
+
+
+
+
+
+.oks-test {
+  color: red;
+}
+
+.oks-flex-container {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+
+.oks-flex-item {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  border-bottom-color: #4EBBE4;
+  color: #16A2D7;
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
 
 </style>
