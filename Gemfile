@@ -32,6 +32,8 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'rails-settings-cached'
 gem 'foreman'
+gem 'natto'
+gem 'mecab', '0.996'
 
 gem 'webpacker'
 group :development, :test do
