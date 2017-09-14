@@ -143,8 +143,6 @@ GEM
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
     mysql2 (0.4.7)
-    natto (1.1.1)
-      ffi (>= 1.9.0)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -273,7 +271,6 @@ DEPENDENCIES
   mecab (= 0.996)
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
-  natto
   oj
   puma (~> 3.7)
   rack-attack
