@@ -10,7 +10,7 @@ class User < ApplicationRecord
     self.admin
   end
 
-  def authorized_by(provider: 'facebook')
+  def authorized_by(provider: nil)
     self.providers.where(provider: provider).exists?
   end
 end
