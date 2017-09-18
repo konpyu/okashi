@@ -42,6 +42,7 @@ gem 'webpacker'
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-github"
+gem "pundit"
 
 group :development, :test do
   gem 'fabrication', '~> 2.16'
