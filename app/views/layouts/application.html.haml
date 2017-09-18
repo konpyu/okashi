@@ -24,5 +24,7 @@
     = yield :header_tags
 
   %body
+    = link_to "settings", me_accounts_path
+    = link_to "login/signup", signin_path
     %div#app
     = content_for?(:content) ? yield(:content) : yield
