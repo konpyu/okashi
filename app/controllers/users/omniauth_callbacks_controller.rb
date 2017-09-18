@@ -1,7 +1,16 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
+    omniauth_authorize
+  end
+
+  def twitter
+    omniauth_authorize
+  end
+
+  private
+
+  def omniauth_authorize
     auth = request.env["omniauth.auth"]
-    #binding.pry
     if user_signed_in?
       # add new connection
       omni_params = request.env["omniauth.params"]

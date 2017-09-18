@@ -1,0 +1,32 @@
+!!! 5
+%html{ lang: I18n.locale }
+  %head
+    %meta{ charset: 'utf-8' }/
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }/
+    %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }/
+    -#%link{ rel: 'icon', href: favicon_path, type: 'image/x-icon' }/
+    %link{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }/
+    %link{ rel: 'mask-icon', href: '/mask-icon.svg', color: '#2B90D9' }/
+    %link{ rel: 'manifest', href: '/manifest.json' }/
+    %meta{ name: 'msapplication-config', content: '/browserconfig.xml' }/
+    %meta{ name: 'theme-color', content: '#282c37' }/
+    %meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }/
+
+    %title<
+      - title = "okashiclub"
+      - if content_for?(:page_title)
+        = yield(:page_title)
+        = ' - '
+      = title
+    = csrf_meta_tags
+    = stylesheet_pack_tag 'hello_vue', media: 'all'
+    = javascript_pack_tag 'hello_vue', integrity: true, crossorigin: 'anonymous'    
+    = yield :header_tags
+
+  %body
+    - if user_signed_in?
+      %p
+        = "you have already loggined as #{current_user.username}"
+    - else
+      = link_to "facebook login", user_facebook_omniauth_authorize_path
+      = link_to "twitter login", user_twitter_omniauth_authorize_path

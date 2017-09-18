@@ -1,6 +1,41 @@
 Rails.application.routes.draw do
   root to: 'templates#index'
-  get signin: 'sessions#signin'
+  get :signin, to: 'sessions#signin'
+
+  namespace :me do
+    resource :accounts, only: [:show, :update]
+  end
+  # namespace :settings do
+  #   resource :profile, only: [:show, :update]
+  #   resource :preferences, only: [:show, :update]
+  #   resource :import, only: [:show, :create]
+
+  #   resource :export, only: [:show]
+  #   namespace :exports, constraints: { format: :csv } do
+  #     resources :follows, only: :index, controller: :following_accounts
+  #     resources :blocks, only: :index, controller: :blocked_accounts
+  #     resources :mutes, only: :index, controller: :muted_accounts
+  #   end
+
+  #   resource :two_factor_authentication, only: [:show, :create, :destroy]
+  #   namespace :two_factor_authentication do
+  #     resources :recovery_codes, only: [:create]
+  #     resource :confirmation, only: [:new, :create]
+  #   end
+
+  #   resource :follower_domains, only: [:show, :update]
+
+  #   resources :applications, except: [:edit] do
+  #     member do
+  #       post :regenerate
+  #     end
+  #   end
+
+  #   resource :delete, only: [:show, :destroy]
+
+  #   resources :sessions, only: [:destroy]
+  # end
+
 
   devise_for :users,
     controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
