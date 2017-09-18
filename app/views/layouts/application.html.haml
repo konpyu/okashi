@@ -24,10 +24,15 @@
     = yield :header_tags
 
   %body
-    = link_to "settings", me_accounts_path
-    - if user_signed_in?
-      = link_to "logout", destroy_user_session_path
-    - else
-      = link_to "login/signup", signin_path
-    %div#app
-    = content_for?(:content) ? yield(:content) : yield
+    .header
+      = link_to "settings", me_accounts_path
+      - if user_signed_in?
+        = link_to "logout", destroy_user_session_path
+      - else
+        = link_to "login/signup", signin_path
+
+    .content-body
+      - if content_for?(:content)
+        = yield(:content)
+      - else
+        %div#app

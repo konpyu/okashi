@@ -1,0 +1,6 @@
+- if user_signed_in?
+  %p
+  = "you have already loggined as #{current_user.username}"
+- else
+  = link_to "facebook login", user_facebook_omniauth_authorize_path
+  = link_to "twitter login",  user_twitter_omniauth_authorize_path
