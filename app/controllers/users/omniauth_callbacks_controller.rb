@@ -11,23 +11,41 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def omniauth_authorize
     auth = request.env["omniauth.auth"]
+    provider = Provider.find_by(provider: auth[:provider], uid: auth[:uid])
     if user_signed_in?
-      # add new connection
-      omni_params = request.env["omniauth.params"]
-      redirect_path = omni_params["redirect_to"].presence || root_path
-      redirect_to root_path and return
+      if provider.present?
+        sign_in_and_redirect provider.user, event: "root"
+      else
+        current_user.providers.create!(provider_attributes(auth))
+        sign_in_and_redirect current_user, event: "root"
+      end
     else
-      user = User.where(
-        provider: auth[:provider],
-        uid: auth[:uid]
-      ).first_or_initialize
-      if user.new_record?
-        user.email = auth[:info][:email]
+      if provider.present?
+        sign_in_and_redirect provider.user, event: "root"
+      else
+        user = User.new
+        user.email = auth[:info][:email] || ""
         user.username = SecureRandom.hex(10)
         user.save
+        user.providers.create!(provider_attributes(auth))
+        sign_in_and_redirect user, event: "root"
       end
-      sign_in_and_redirect user, event: "root"
     end
+  end
+
+  def provider_attributes(auth)
+    credentials = auth[:credentials]
+
+    expires_at = (auth[:provider] == "facebook") ? credentials[:expires_at] : nil
+    token_secret = (auth[:provider] == "twitter") ? credentials[:secret] : nil
+
+    {
+      provider: auth[:provider],
+      uid: auth[:uid],
+      token: credentials[:token],
+      token_expires_at: expires_at,
+      token_secret: token_secret,
+    }
   end
 
   def failure

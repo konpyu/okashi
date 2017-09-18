@@ -7,6 +7,11 @@ if Rails.env.development?
       email:    's2015050804+twitter_test@gmail.com',
       name:     "John Q Public",
       nickname: "johnqpublic",
+    },
+    credentials: {
+      token: 'mock_token',
+      secret: 'mock_secret',
+      expires_at: Time.now.since(100.days)
     }
   })
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
@@ -16,6 +21,11 @@ if Rails.env.development?
       email:    's201709201333+facebook_test@gmail.com',
       name:     'Kiko Mzhr',
       nickname: 'kiko',
+    },
+    credentials: {
+      token: 'mock_token',
+      secret: 'mock_secret',
+      expires_at: Time.now.since(100.days)
     }
   })
   Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
