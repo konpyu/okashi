@@ -24,7 +24,7 @@ gem 'htmlentities'
 gem 'httplog'
 gem 'rack-attack'
 gem 'rack-cors'
-gem 'rack-timeout'
+#gem 'rack-timeout'
 gem 'rails-settings-cached'
 gem 'sanitize'
 gem 'mini_magick'
@@ -39,6 +39,9 @@ gem 'sidekiq-unique-jobs', '~> 5.0'
 gem 'sidekiq-bulk', '~>0.1.1'
 gem 'listen'
 gem 'webpacker'
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "omniauth-github"
 
 group :development, :test do
   gem 'fabrication', '~> 2.16'
