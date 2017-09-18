@@ -38,10 +38,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     expires_at = (auth[:provider] == "facebook") ? credentials[:expires_at] : nil
     token_secret = (auth[:provider] == "twitter") ? credentials[:secret] : nil
-
     {
       provider: auth[:provider],
       uid: auth[:uid],
+      image_url: auth[:info][:image],
       token: credentials[:token],
       token_expires_at: expires_at,
       token_secret: token_secret,

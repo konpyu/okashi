@@ -7,6 +7,7 @@ class CreateProviders < ActiveRecord::Migration[5.1]
       t.string  :token, null: false
       t.integer :token_expires_at
       t.string  :token_secret
+      t.text    :image_url
       t.timestamps
     end
     add_index :providers, :user_id

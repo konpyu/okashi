@@ -1,4 +1,5 @@
 if Rails.env.development?
+  sample_img = "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/57088/profile_96ce4593fee174807dc2692f75e3c42d.jpg"
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
     provider: 'twitter',
@@ -7,6 +8,7 @@ if Rails.env.development?
       email:    's2015050804+twitter_test@gmail.com',
       name:     "John Q Public",
       nickname: "johnqpublic",
+      image: sample_img,
     },
     credentials: {
       token: 'mock_token',
@@ -21,6 +23,7 @@ if Rails.env.development?
       email:    's201709201333+facebook_test@gmail.com',
       name:     'Kiko Mzhr',
       nickname: 'kiko',
+      image: sample_img,
     },
     credentials: {
       token: 'mock_token',

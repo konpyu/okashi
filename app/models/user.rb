@@ -5,4 +5,12 @@ class User < ApplicationRecord
     :rememberable, :recoverable,
     omniauth_providers: %i(github facebook twitter)
   has_many :providers
+
+  def admin?
+    self.admin
+  end
+
+  def authorized_by(provider: 'facebook')
+    self.providers.where(provider: provider).exists?
+  end
 end

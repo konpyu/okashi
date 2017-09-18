@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170918070555) do
     t.string "token", null: false
     t.integer "token_expires_at"
     t.string "token_secret"
+    t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_providers_on_provider_and_uid", unique: true

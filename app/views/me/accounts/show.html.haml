@@ -1,5 +1,7 @@
 %h1 User Setting
 
+.prof
+  = image_tag current_user.providers.where.not(image_url: nil).first.try(:image_url), width: 48, height: 48
 %h3
   = "UserID: #{current_user.id}"
 %h3
