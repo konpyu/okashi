@@ -25,6 +25,7 @@
 
   %body
     = link_to "settings", me_accounts_path
-    = link_to "login/signup", signin_path
+    - unless user_signed_in?
+      = link_to "login/signup", signin_path
     %div#app
     = content_for?(:content) ? yield(:content) : yield
