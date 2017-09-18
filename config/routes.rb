@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'templates#index'
-  
+  get signin: 'sessions#signin'
+
+  devise_for :users,
+    controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
+    skip: %i(passwords registrations sessions)
+
   namespace :api do
 
     # JSON / REST API
@@ -31,6 +35,6 @@ Rails.application.routes.draw do
 
     match '*path', via: :get, to: 'templates#index'
   end
-  
+
 
 end
