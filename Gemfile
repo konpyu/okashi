@@ -37,7 +37,7 @@ gem 'sidekiq', '~> 5.0'
 gem 'sidekiq-scheduler', '~> 2.1'
 gem 'sidekiq-unique-jobs', '~> 5.0'
 gem 'sidekiq-bulk', '~>0.1.1'
-
+gem 'listen'
 gem 'webpacker'
 
 group :development, :test do
