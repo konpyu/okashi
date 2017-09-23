@@ -18,7 +18,6 @@ gem 'oj'
 gem 'browser'
 gem 'aws-sdk'
 gem 'addressable'
-gem 'bootsnap'
 gem 'fast_blank'
 gem 'htmlentities'
 gem 'httplog'
@@ -67,6 +66,7 @@ end
 
 group :development do
   gem 'active_record_query_trace', '~> 1.5'
+  gem 'bootsnap'
   gem 'annotate', '~> 2.7'
   gem 'better_errors', '~> 2.1'
   gem 'binding_of_caller', '~> 0.7'
